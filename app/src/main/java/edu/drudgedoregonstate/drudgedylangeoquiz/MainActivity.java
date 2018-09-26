@@ -2,6 +2,7 @@ package edu.drudgedoregonstate.drudgedylangeoquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
@@ -25,17 +26,17 @@ public class MainActivity extends AppCompatActivity {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,
-                        R.string.incorrect_toast,
-                        Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(MainActivity.this,R.string.incorrect_toast,Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
             }
         });
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,
-                        R.string.correct_toast,
-                        Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
             }
         });
     }
