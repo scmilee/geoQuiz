@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DrudgeDylanGeoQuiz</string>
+    <string name="question_text">Portland is spoopy during halloween.</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
+</resources>
