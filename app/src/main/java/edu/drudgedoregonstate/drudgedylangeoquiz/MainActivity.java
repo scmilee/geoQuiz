@@ -7,10 +7,6 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
