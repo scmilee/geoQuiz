@@ -10,7 +10,7 @@ public class Question {
     }
 
 
-    public int getmQuestionId() {
+    public int getQuestion() {
         return mQuestionId;
     }
 
