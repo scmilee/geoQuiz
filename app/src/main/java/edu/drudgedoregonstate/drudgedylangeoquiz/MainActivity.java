@@ -2,6 +2,7 @@ package edu.drudgedoregonstate.drudgedylangeoquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Button;
 import android.view.View;
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
     private TextView mQuestionTextView;
     private Question[] mQuestionBank = new Question[] {
             new Question(R.string.question_oceans, true),
@@ -50,8 +53,17 @@ public class MainActivity extends AppCompatActivity {
                 updateQuestion();
             } });
         mQuestionTextView = findViewById(R.id.question_text_view);
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
         updateQuestion();
 
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getQuestion();
