@@ -1,5 +1,6 @@
 package edu.drudgedoregonstate.drudgedylangeoquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-// Start CheatActivity
+                boolean answerIsTrue = mQuestionBank[mCurrentIndex].ismTrueOrFalse();
+                Intent intent = CheatActivity.newIntent(MainActivity.this, answerIsTrue);
+                startActivity(intent);
             }
         });
         updateQuestion();
