@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mNextButton;
     private Button mCheatButton;
     private boolean mIsCheater;
+    private boolean mHasAnswered;
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
     private static final int REQUEST_CODE_CHEAT = 0;
@@ -41,20 +42,27 @@ public class MainActivity extends AppCompatActivity {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(true);
+                if (!mHasAnswered) {
+                    mHasAnswered = true;
+                    checkAnswer(true);
+                }
             }
         });
         mFalseButton = findViewById(R.id.false_button);
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(false);
+                if (!mHasAnswered) {
+                    mHasAnswered = true;
+                    checkAnswer(false);
+                }
             }
         });
         mNextButton = (Button)findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mHasAnswered = false;
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 mIsCheater = false;
                 updateQuestion();
