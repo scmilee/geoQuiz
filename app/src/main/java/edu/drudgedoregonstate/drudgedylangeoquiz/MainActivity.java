@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private Button mCheatButton;
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
     private TextView mQuestionTextView;
@@ -56,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
         }
+        mCheatButton = findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+// Start CheatActivity
+            }
+        });
         updateQuestion();
 
     }
