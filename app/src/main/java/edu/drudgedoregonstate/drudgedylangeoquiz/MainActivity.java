@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean answerIsTrue = mQuestionBank[mCurrentIndex].ismTrueOrFalse();
                 Intent intent = CheatActivity.newIntent(MainActivity.this, answerIsTrue);
-                startActivityForResult(intent, REQUEST_CODE_CHEAT);            }
+                startActivityForResult(intent, REQUEST_CODE_CHEAT);
+            }
         });
         updateQuestion();
 
